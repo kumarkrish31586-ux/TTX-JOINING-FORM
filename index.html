@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTX JOINING FORM - Official Stream Tournaments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ttxBg: '#090514',
+                        ttxCard: '#130c27',
+                        ttxPurple: '#8b5cf6',
+                        ttxNeon: '#c084fc',
+                        ttxAccent: '#a855f7',
+                        ttxPink: '#ec4899',
+                        ttxGreen: '#15803d',
+                        ttxDarkGreen: '#14532d'
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #090514;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            touch-action: manipulation;
+        }
+        .neon-border {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4), inset 0 0 10px rgba(168, 85, 247, 0.2);
+            border: 2px solid #a855f7;
+        }
+        .neon-btn {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+        }
+        .seat-booked {
+            background-color: #14532d !important;
+            border: 1px solid #22c55e !important;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090514;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a855f7;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-ttxBg min-h-screen pb-28 text-gray-100 selection:bg-ttxAccent selection:text-white">
+
+    <header class="sticky top-0 z-40 bg-ttxBg/95 backdrop-blur-md border-b border-ttxAccent/30 px-4 py-3 shadow-lg">
+        <div class="max-w-md mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-500 p-0.5 shadow-lg shadow-purple-500/30 flex items-center justify-center">
+                    <div class="w-full h-full bg-ttxBg rounded-[14px] flex items-center justify-center">
+                        <i class="fa-solid fa-bolt text-yellow-400 text-xl animate-pulse"></i>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-orbitron font-black text-lg tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-white leading-tight">
+                        TTX JOINING FORM
+                    </h1>
+                    <p class="font-rajdhani text-[10px] font-bold tracking-widest text-purple-300/80 uppercase">
+                        Official Stream Tournaments
+                    </p>
+                </div>
+            </div>
+
+            <!-- Header Admin Button Access -->
+            <div class="flex items-center gap-2">
+                <button onclick="switchTab('status')" title="Search Registration" class="p-2.5 rounded-full bg-purple-950/60 border border-purple-500/40 text-purple-300 hover:text-white hover:bg-purple-800/50 transition">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                </button>
+                <button onclick="openAdminModal()" title="Admin Control Panel" class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 p-0.5 shadow-md flex items-center justify-center hover:scale-105 transition">
+                    <div class="w-full h-full bg-ttxBg rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-user-shield text-purple-300 text-sm"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 pt-4 space-y-6">
+
+        <div id="tab-home" class="tab-content space-y-5">
+
+            <!-- Banner Card: Channel & Video Links -->
+            <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-purple-900/40 via-purple-950/80 to-slate-900 border border-purple-500/40 p-4 shadow-xl space-y-3">
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
+                <div class="flex items-center gap-3">
+                    <div class="w-14 h-14 rounded-full bg-purple-950 border-2 border-purple-500 flex items-center justify-center font-orbitron font-black text-purple-300 text-lg shadow-inner">
+                        TTX
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2">
+                            <span class="font-orbitron font-bold text-sm text-white">TTX YTT</span>
+                            <span class="bg-red-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                                <i class="fa-brands fa-youtube text-[10px]"></i> OFFICIAL
+                            </span>
+                        </div>
+                        <p class="text-xs text-gray-300 font-medium mt-1">WATCH FORM JOINING VIDEO & SUBSCRIBE</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 pt-1">
+                    <a id="ytVideoBtn" href="#" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-orbitron font-bold text-[11px] py-2.5 px-2 rounded-xl flex items-center justify-center gap-1.5 shadow-md transition">
+                        <i class="fa-solid fa-play text-xs"></i> WATCH VIDEO
+                    </a>
+                    <a id="ytChannelBtn" href="https://youtube.com/@ttx_ytt?si=lco0vZcVFwyYX0la" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-orbitron font-bold text-[11px] py-2.5 px-2 rounded-xl flex items-center justify-center gap-1.5 shadow-md transition">
+                        <i class="fa-brands fa-youtube text-sm"></i> SUBSCRIBE
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Register Button -->
+            <button onclick="openRegistrationModal()" class="w-full py-5 rounded-2xl neon-btn text-white font-orbitron font-black text-lg tracking-wider flex items-center justify-center gap-3 shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+                <i class="fa-solid fa-gamepad text-2xl animate-bounce"></i>
+                <span>REGISTER NOW / JOIN MATCH</span>
+            </button>
+
+            <!-- Live Seats Overview Card -->
+            <div class="bg-ttxCard/80 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-4 shadow-lg space-y-3">
+                <div class="flex items-center justify-between border-b border-purple-900/50 pb-2">
+                    <span class="font-rajdhani font-bold text-sm uppercase text-purple-300 flex items-center gap-2">
+                        <i class="fa-solid fa-users text-pink-400"></i> Today's Live Slots Status
+                    </span>
+                    <span id="totalSeatsCount" class="font-orbitron font-bold text-xs bg-purple-900/80 text-purple-200 px-2.5 py-1 rounded-lg">
+                        0 / 60 Filled
+                    </span>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div onclick="switchTab('sectionA')" class="bg-purple-950/40 border border-purple-600/30 rounded-xl p-3 text-center cursor-pointer hover:border-purple-400 transition">
+                        <p class="font-orbitron text-xs text-purple-300">SECTION A</p>
+                        <p id="secACount" class="font-bold text-lg text-white mt-0.5">0 / 30</p>
+                        <span class="text-[10px] text-green-400 font-medium"><i class="fa-solid fa-circle text-[8px]"></i> Click to View</span>
+                    </div>
+                    <div onclick="switchTab('sectionB')" class="bg-purple-950/40 border border-purple-600/30 rounded-xl p-3 text-center cursor-pointer hover:border-purple-400 transition">
+                        <p class="font-orbitron text-xs text-purple-300">SECTION B</p>
+                        <p id="secBCount" class="font-bold text-lg text-white mt-0.5">0 / 30</p>
+                        <span class="text-[10px] text-green-400 font-medium"><i class="fa-solid fa-circle text-[8px]"></i> Click to View</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Scanner & UPI ID Card -->
+            <div id="homePaymentSection" class="bg-ttxCard border border-purple-500/40 rounded-2xl p-4 shadow-xl text-center space-y-3">
+                <div class="flex items-center justify-between border-b border-purple-800/40 pb-2">
+                    <h3 class="font-orbitron font-bold text-sm text-purple-300 flex items-center gap-2">
+                        <i class="fa-solid fa-qrcode text-pink-400"></i> ENTRY PAYMENT SCANNER
+                    </h3>
+                    <span class="bg-green-500/20 border border-green-500/40 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded">
+                        ENTRY FEE: ₹20
+                    </span>
+                </div>
+                
+                <div class="relative max-w-[200px] mx-auto bg-white p-3 rounded-2xl shadow-inner border-2 border-purple-400/50">
+                    <img id="homeQrImage" src="https://placehold.co/300x300/101010/a855f7?text=Scan+QR+%E2%82%B920" alt="Payment QR Code" class="w-full h-auto rounded-xl object-contain max-h-[220px]">
+                </div>
+
+                <!-- UPI ID Section -->
+                <div class="bg-purple-950/70 border border-purple-500/30 p-2.5 rounded-xl flex items-center justify-between gap-2">
+                    <div class="text-left overflow-hidden">
+                        <p class="text-[10px] text-purple-300 font-bold uppercase">Official UPI ID</p>
+                        <p id="homeUpiDisplay" class="text-xs font-mono font-bold text-yellow-300 truncate">ttxgame@upi</p>
+                    </div>
+                    <button onclick="copyUpiId()" class="bg-purple-600 hover:bg-purple-700 text-white text-xs px-3 py-1.5 rounded-lg font-bold flex items-center gap-1 shrink-0">
+                        <i class="fa-solid fa-copy text-xs"></i> Copy
+                    </button>
+                </div>
+
+                <p class="text-xs text-gray-300 font-medium">Scan QR or copy UPI ID to pay ₹20 using PhonePe, Paytm, or Google Pay.</p>
+            </div>
+
+            <!-- Quick Registration Search Section -->
+            <div class="bg-ttxCard border border-purple-500/30 rounded-2xl p-4 shadow-lg space-y-3">
+                <h3 class="font-rajdhani font-bold text-sm text-purple-300 flex items-center gap-2">
+                    <i class="fa-solid fa-clock-rotate-left"></i> CHECK REGISTRATION STATUS
+                </h3>
+                <div class="flex gap-2">
+                    <input type="text" id="homeSearchInput" placeholder="Enter Game Name or Mobile..." class="flex-1 bg-purple-950/60 border border-purple-500/40 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-purple-400">
+                    <button onclick="searchRegistrationStatus('homeSearchInput')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-4 py-2 rounded-xl text-xs font-orbitron transition">
+                        SEARCH
+                    </button>
+                </div>
+                <div id="homeSearchResult" class="hidden pt-2"></div>
+            </div>
+
+        </div>
+
+        <div id="tab-sectionA" class="tab-content hidden space-y-4">
+            <div class="flex items-center justify-between bg-ttxCard border border-purple-500/40 p-3 rounded-xl">
+                <div>
+                    <h2 class="font-orbitron font-bold text-purple-300 text-base">SECTION A SLOTS</h2>
+                    <p class="text-xs text-gray-400">30 Players Capacity</p>
+                </div>
+                <span class="bg-purple-900/80 text-purple-200 text-xs font-bold px-3 py-1 rounded-lg font-orbitron" id="secABadge">0 / 30 Booked</span>
+            </div>
+            <div class="grid grid-cols-3 sm:grid-cols-5 gap-2.5" id="gridSectionA">
+                <!-- Javascript injects seats -->
+            </div>
+        </div>
+
+        <div id="tab-sectionB" class="tab-content hidden space-y-4">
+            <div class="flex items-center justify-between bg-ttxCard border border-purple-500/40 p-3 rounded-xl">
+                <div>
+                    <h2 class="font-orbitron font-bold text-purple-300 text-base">SECTION B SLOTS</h2>
+                    <p class="text-xs text-gray-400">30 Players Capacity</p>
+                </div>
+                <span class="bg-purple-900/80 text-purple-200 text-xs font-bold px-3 py-1 rounded-lg font-orbitron" id="secBBadge">0 / 30 Booked</span>
+            </div>
+            <div class="grid grid-cols-3 sm:grid-cols-5 gap-2.5" id="gridSectionB">
+                <!-- Javascript injects seats -->
+            </div>
+        </div>
+
+        <div id="tab-status" class="tab-content hidden space-y-4">
+            <div class="bg-ttxCard border border-purple-500/40 rounded-2xl p-4 shadow-xl space-y-3">
+                <h2 class="font-orbitron font-bold text-purple-300 text-base flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-pink-400"></i> SEARCH PLAYER REGISTRATION
+                </h2>
+                <div class="flex gap-2">
+                    <input type="text" id="statusSearchInput" placeholder="Enter Mobile or Game Name..." class="flex-1 bg-purple-950/60 border border-purple-500/40 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-purple-400">
+                    <button onclick="searchRegistrationStatus('statusSearchInput')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-4 py-2 rounded-xl text-xs font-orbitron transition">
+                        SEARCH
+                    </button>
+                </div>
+                <div id="statusSearchResult" class="space-y-3 pt-2"></div>
+            </div>
+        </div>
+
+        <div id="tab-help" class="tab-content hidden space-y-4">
+            <div class="bg-ttxCard border border-purple-500/40 rounded-2xl p-5 shadow-xl space-y-4">
+                
+                <!-- Language Selector Header -->
+                <div class="flex items-center justify-between border-b border-purple-800/40 pb-3">
+                    <h2 class="font-orbitron font-bold text-purple-300 text-base flex items-center gap-2">
+                        <i class="fa-solid fa-circle-question text-pink-400"></i> TOURNAMENT HELP & RULES
+                    </h2>
+                    <div class="flex items-center bg-purple-950 p-1 rounded-xl border border-purple-500/40">
+                        <button onclick="setHelpLanguage('en')" id="langBtnEn" class="px-2.5 py-1 rounded-lg text-xs font-bold transition bg-purple-600 text-white">
+                            English
+                        </button>
+                        <button onclick="setHelpLanguage('hi')" id="langBtnHi" class="px-2.5 py-1 rounded-lg text-xs font-bold transition text-purple-300 hover:text-white">
+                            हिंदी
+                        </button>
+                    </div>
+                </div>
+
+                <!-- English Content Container -->
+                <div id="helpContentEn" class="space-y-5 text-xs text-gray-300">
+                    
+                    <!-- Steps Section -->
+                    <div class="space-y-3">
+                        <h3 class="font-orbitron font-bold text-sm text-pink-400 uppercase tracking-wide border-b border-purple-900/60 pb-1">
+                            📋 Step-By-Step Registration Guide
+                        </h3>
+                        <div class="space-y-2.5">
+                            <div class="flex gap-3 items-start bg-purple-950/40 p-2.5 rounded-xl border border-purple-800/30">
+                                <span class="w-6 h-6 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0">1</span>
+                                <p><strong class="text-white">Fill Player Details:</strong> Click "Register Now", enter your Real Name, Mobile Number, WhatsApp Number, In-Game Name, and Game UID.</p>
+                            </div>
+                            <div class="flex gap-3 items-start bg-purple-950/40 p-2.5 rounded-xl border border-purple-800/30">
+                                <span class="w-6 h-6 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0">2</span>
+                                <p><strong class="text-white">Select Section & Seat:</strong> Choose Section A or B, pick your match timing (7 AM / 7 PM), and select an available seat slot (1 to 30).</p>
+                            </div>
+                            <div class="flex gap-3 items-start bg-purple-950/40 p-2.5 rounded-xl border border-purple-800/30">
+                                <span class="w-6 h-6 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0">3</span>
+                                <p><strong class="text-white">Pay ₹20 Entry Fee:</strong> Scan the Official Payment QR Code or copy the UPI ID to pay ₹20, then enter your Transaction / UTR ID.</p>
+                            </div>
+                            <div class="flex gap-3 items-start bg-purple-950/40 p-2.5 rounded-xl border border-purple-800/30">
+                                <span class="w-6 h-6 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0">4</span>
+                                <p><strong class="text-white">Check Status & Join Group:</strong> Use Search to check your registration status. Once Approved, click to join your Section WhatsApp Group.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rules & Strict Prohibitions Section -->
+                    <div class="space-y-3">
+                        <h3 class="font-orbitron font-bold text-sm text-red-400 uppercase tracking-wide border-b border-purple-900/60 pb-1">
+                            ⚠ Strict Game Rules & Prohibitions
+                        </h3>
+                        <div class="space-y-2 bg-red-950/30 border border-red-500/40 p-3.5 rounded-2xl">
+                            <div class="flex items-center gap-2 text-red-300 font-bold">
+                                <i class="fa-solid fa-ban text-red-500 text-base"></i>
+                                <span>1. Horse Riding (Gora Chalana / Horse Ride) is STRICTLY BANNED.</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-red-300 font-bold">
+                                <i class="fa-solid fa-ban text-red-500 text-base"></i>
+                                <span>2. Teaming Up with enemy players is STRICTLY BANNED.</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-red-300 font-bold">
+                                <i class="fa-solid fa-ban text-red-500 text-base"></i>
+                                <span>3. Zone Pushing is STRICTLY BANNED.</span>
+                            </div>
+
+                            <div class="mt-3 pt-2 border-t border-red-500/30 bg-red-900/40 p-2.5 rounded-xl text-red-200 font-bold text-[11px]">
+                                🚨 <strong>PENALTY WARNING:</strong> If any player is found engaging in horse riding, teaming up, or zone pushing during the live match stream, they will be IMMEDIATELY DISQUALIFIED and <u>NO REWARDS / PRIZES WILL BE GIVEN</u>!
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Hindi Content Container -->
+                <div id="helpContentHi" class="space-y-5 text-xs text-gray-300 hidden">
+                    
+                    <!-- Steps Section Hindi -->
+                    <div class="space-y-3">
+                        <h3 class="font-orbitron font-bold text-sm text-pink-400 uppercase tracking-wide border-b border-purple-900/60 pb-1">
+                            📋 फॉर्म भरने का पूरा Step-By-Step तरीका
+                        </h3>
+                        <div class="space-y-2.5">
+                            <div class="flex gap-3 items-start bg-purple-950/40 p-2.5 rounded-xl border border-purple-800/30">
+                                <span class="w-6 h-6 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0">1</span>
+                                <p><strong class="text-white">खिलाड़ी का विवरण भरें:</strong> "Register Now" पर क्लिक करें, अपना असली नाम, मोबाइल नंबर, व्हाट्सएप नंबर, इन-गेम नाम और गेम यूआईडी (Game UID) दर्ज करें।</p>
+                            </div>
+                            <div class="flex gap-3 items-start bg-purple-950/40 p-2.5 rounded-xl border border-purple-800/30">
+                                <span class="w-6 h-6 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0">2</span>
+                                <p><strong class="text-white">सेक्शन और सीट चुनें:</strong> सेक्शन A या B चुनें, अपनी मैच टाइमिंग (7 AM / 7 PM) चुनें, और 1 से 30 में से अपनी पसंदीदा उपलब्ध सीट चुनें।</p>
+                            </div>
+                            <div class="flex gap-3 items-start bg-purple-950/40 p-2.5 rounded-xl border border-purple-800/30">
+                                <span class="w-6 h-6 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0">3</span>
+                                <p><strong class="text-white">₹20 एंट्री फीस जमा करें:</strong> QR कोड स्कैन करें या UPI ID कॉपी करके ₹20 का भुगतान करें, और UTR / Transaction ID भरें।</p>
+                            </div>
+                            <div class="flex gap-3 items-start bg-purple-950/40 p-2.5 rounded-xl border border-purple-800/30">
+                                <span class="w-6 h-6 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0">4</span>
+                                <p><strong class="text-white">स्टेटस चेक करें व ग्रुप जॉइन करें:</strong> रजिस्ट्रेशन के बाद अपना स्टेटस सर्च करें। अप्रूव होने पर व्हाट्सएप ग्रुप लिंक पर क्लिक करके ग्रुप में जुड़ें।</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rules & Strict Prohibitions Section Hindi -->
+                    <div class="space-y-3">
+                        <h3 class="font-orbitron font-bold text-sm text-red-400 uppercase tracking-wide border-b border-purple-900/60 pb-1">
+                            ⚠ गेम के सख्त नियम और पाबंदियां
+                        </h3>
+                        <div class="space-y-2 bg-red-950/30 border border-red-500/40 p-3.5 rounded-2xl">
+                            <div class="flex items-center gap-2 text-red-300 font-bold">
+                                <i class="fa-solid fa-ban text-red-500 text-base"></i>
+                                <span>1. घोड़ा चलाना (Gora Chalana / Horse Ride करना) पूरी तरह से BAN है।</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-red-300 font-bold">
+                                <i class="fa-solid fa-ban text-red-500 text-base"></i>
+                                <span>2. दुश्मनों के साथ Team-up (टीम-अप) करना पूरी तरह से BAN है।</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-red-300 font-bold">
+                                <i class="fa-solid fa-ban text-red-500 text-base"></i>
+                                <span>3. Zone Pushing करना पूरी तरह से BAN है।</span>
+                            </div>
+
+                            <div class="mt-3 pt-2 border-t border-red-500/30 bg-red-900/40 p-2.5 rounded-xl text-red-200 font-bold text-[11px]">
+                                🚨 <strong>सख्त चेतावनी (WARNING):</strong> अगर लाइव स्ट्रीम या मैच के दौरान कोई भी प्लेयर घोड़ा चलाते हुए, टीम-अप करते हुए, या ज़ोन पुशिंग करते हुए पकड़ा जाता है, तो उसे तुरंत डिसक्वालिफाई कर दिया जाएगा और <u>कोई भी REWARD / इनाम नहीं दिया जाएगा</u>!
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-ttxBg/95 backdrop-blur-md border-t border-purple-500/30 px-2 py-2">
+        <div class="max-w-md mx-auto grid grid-cols-5 gap-1 sm:gap-2">
+            <!-- 1. Help Button -->
+            <button onclick="switchTab('help')" id="nav-help" class="nav-btn bg-purple-600 hover:bg-purple-700 active:scale-95 text-white font-orbitron font-bold py-2 rounded-xl text-center text-[10px] sm:text-xs shadow-md transition flex flex-col items-center justify-center gap-0.5">
+                <i class="fa-solid fa-circle-question text-sm sm:text-base"></i>
+                <span>Help</span>
+            </button>
+
+            <!-- 2. Section A Button -->
+            <button onclick="switchTab('sectionA')" id="nav-sectionA" class="nav-btn bg-purple-600 hover:bg-purple-700 active:scale-95 text-white font-orbitron font-black py-2 rounded-xl text-center shadow-md transition flex flex-col items-center justify-center">
+                <span class="text-lg leading-none">A</span>
+                <span class="text-[8px] font-sans font-bold uppercase opacity-80">Section</span>
+            </button>
+
+            <!-- 3. HOME Button (Exact Center) -->
+            <button onclick="switchTab('home')" id="nav-home" class="nav-btn bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 active:scale-95 text-white font-orbitron font-bold py-2 rounded-xl text-center text-[10px] sm:text-xs shadow-lg transition flex flex-col items-center justify-center gap-0.5 border border-pink-400/50">
+                <i class="fa-solid fa-house text-sm sm:text-base text-yellow-300"></i>
+                <span>Home</span>
+            </button>
+
+            <!-- 4. Section B Button -->
+            <button onclick="switchTab('sectionB')" id="nav-sectionB" class="nav-btn bg-purple-600 hover:bg-purple-700 active:scale-95 text-white font-orbitron font-black py-2 rounded-xl text-center shadow-md transition flex flex-col items-center justify-center">
+                <span class="text-lg leading-none">B</span>
+                <span class="text-[8px] font-sans font-bold uppercase opacity-80">Section</span>
+            </button>
+
+            <!-- 5. Payment Button -->
+            <button onclick="scrollToHomeQr()" id="nav-payment" class="nav-btn bg-purple-600 hover:bg-purple-700 active:scale-95 text-white font-orbitron font-bold py-2 rounded-xl text-center text-[10px] sm:text-xs shadow-md transition flex flex-col items-center justify-center gap-0.5">
+                <i class="fa-solid fa-qrcode text-sm sm:text-base"></i>
+                <span>Payment</span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="registrationModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-3 overflow-y-auto">
+        <div class="bg-ttxCard border-2 border-purple-500/60 rounded-2xl w-full max-w-md my-8 p-5 shadow-2xl relative space-y-4 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeRegistrationModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white w-8 h-8 rounded-full bg-purple-950 flex items-center justify-center">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <h2 class="font-orbitron font-black text-xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                TTX PLAYER REGISTRATION
+            </h2>
+
+            <form id="regForm" onsubmit="handleRegistrationSubmit(event)" class="space-y-3.5 text-xs">
+                
+                <!-- 1. Profile Picture / Image Upload -->
+                <div>
+                    <label class="block font-bold text-purple-300 mb-1">1. Upload Player Image / Photo</label>
+                    <div class="flex items-center gap-3">
+                        <div id="avatarPreviewContainer" class="w-12 h-12 rounded-full bg-purple-900 border-2 border-purple-400 overflow-hidden flex items-center justify-center text-lg text-white shrink-0 shadow-md">
+                            <img id="avatarPreviewImg" src="" class="w-full h-full object-cover hidden" alt="Avatar">
+                            <span id="avatarPreviewFallback" class="font-bold text-lg">🎮</span>
+                        </div>
+                        <div class="flex-1 space-y-1">
+                            <input type="file" id="regAvatarFile" accept="image/*" onchange="handlePlayerImageUpload(event)" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl p-1.5 text-[11px] text-gray-200 file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:bg-purple-600 file:text-white file:font-bold">
+                            <p class="text-[9px] text-gray-400">Upload your custom profile photo / avatar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real Name -->
+                <div>
+                    <label class="block font-bold text-purple-300 mb-1">2. Real Name <span class="text-red-400">*</span></label>
+                    <input type="text" id="regRealName" required placeholder="Enter your full real name" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-purple-400" oninput="validateForm()">
+                </div>
+
+                <!-- Mobile Number -->
+                <div>
+                    <label class="block font-bold text-purple-300 mb-1">3. Mobile Number <span class="text-red-400">*</span></label>
+                    <input type="tel" id="regMobile" required placeholder="10 Digit Mobile Number" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-purple-400" oninput="syncWhatsAppNumber(); validateForm();">
+                </div>
+
+                <!-- WhatsApp Number -->
+                <div>
+                    <div class="flex items-center justify-between mb-1">
+                        <label class="block font-bold text-purple-300">4. WhatsApp Number <span class="text-red-400">*</span></label>
+                        <label class="flex items-center gap-1.5 cursor-pointer text-[10px] text-purple-300">
+                            <input type="checkbox" id="sameAsMobile" checked onchange="toggleSameAsMobile()" class="accent-purple-600 rounded">
+                            Same as Mobile Number
+                        </label>
+                    </div>
+                    <input type="tel" id="regWhatsApp" required placeholder="WhatsApp Number" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-purple-400" oninput="validateForm()">
+                </div>
+
+                <!-- Game Name & Game UID -->
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-bold text-purple-300 mb-1">5. In-Game Name <span class="text-red-400">*</span></label>
+                        <input type="text" id="regGameName" required placeholder="ᥫ᭡TTX_YTT࿐" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-purple-400" oninput="validateForm()">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-purple-300 mb-1">Game UID <span class="text-red-400">*</span></label>
+                        <input type="text" id="regGameUid" required placeholder="7557262082" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-purple-400" oninput="validateForm()">
+                    </div>
+                </div>
+
+                <!-- Date & Time Slot -->
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-bold text-purple-300 mb-1">Match Day <span class="text-red-400">*</span></label>
+                        <select id="regDay" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2.5 text-white" onchange="renderSeatGridSelection()">
+                            <option value="Today">Today</option>
+                            <option value="Tomorrow">Tomorrow</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-purple-300 mb-1">Timing Slot <span class="text-red-400">*</span></label>
+                        <select id="regTime" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2.5 text-white" onchange="renderSeatGridSelection()">
+                            <option value="Morning 7:00 AM">Morning 7:00 AM</option>
+                            <option value="Night 7:00 PM">Night 7:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Section Choice -->
+                <div>
+                    <label class="block font-bold text-purple-300 mb-1">7. Select Section <span class="text-red-400">*</span></label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button type="button" id="btnSecA" onclick="selectSection('A')" class="py-2.5 rounded-xl border border-purple-500 font-orbitron font-bold text-sm bg-purple-600 text-white">
+                            SECTION A
+                        </button>
+                        <button type="button" id="btnSecB" onclick="selectSection('B')" class="py-2.5 rounded-xl border border-purple-500/40 font-orbitron font-bold text-sm bg-purple-950 text-purple-300">
+                            SECTION B
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Seat Picker -->
+                <div>
+                    <label class="block font-bold text-purple-300 mb-1">8. Choose Seat Number (1 - 30) <span class="text-red-400">*</span></label>
+                    <div id="modalSeatGrid" class="grid grid-cols-6 gap-1.5 max-h-36 overflow-y-auto p-2 bg-purple-950/80 rounded-xl border border-purple-500/30">
+                        <!-- Rendered by JS -->
+                    </div>
+                    <p id="selectedSeatNotice" class="text-[11px] text-pink-300 mt-1 font-bold">Please select a seat from the grid.</p>
+                </div>
+
+                <!-- Payment Entry Section -->
+                <div class="bg-purple-950/60 p-3 rounded-xl border border-purple-500/40 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-purple-200">Entry Fee Payment (₹20)</span>
+                        <label class="flex items-center gap-1.5 cursor-pointer text-[10px] text-yellow-300 font-bold">
+                            <input type="checkbox" id="skipPayment" onchange="toggleSkipPayment()" class="accent-yellow-500 rounded">
+                            Skip Payment For Now
+                        </label>
+                    </div>
+
+                    <div id="paymentBox" class="space-y-2">
+                        <p class="text-[11px] text-gray-300">Enter UTR / Transaction ID after paying ₹20:</p>
+                        <input type="text" id="regTxnId" placeholder="Enter 12-digit UTR / Txn ID" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2 text-white">
+                    </div>
+                </div>
+
+                <!-- Player Note / Message -->
+                <div>
+                    <label class="block font-bold text-purple-300 mb-1">Message / Note to Admin (Optional)</label>
+                    <input type="text" id="regMessage" placeholder="Any message or questions..." class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2 text-white">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="regSubmitBtn" disabled class="w-full py-3.5 rounded-xl bg-gray-600 text-gray-300 font-orbitron font-bold text-sm cursor-not-allowed transition">
+                    COMPLETE REGISTRATION
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <div id="adminModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-3">
+        <div class="bg-ttxCard border-2 border-purple-500/60 rounded-2xl w-full max-w-md p-5 shadow-2xl relative space-y-4 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white w-8 h-8 rounded-full bg-purple-950 flex items-center justify-center">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <h2 class="font-orbitron font-black text-xl text-purple-300 flex items-center gap-2">
+                <i class="fa-solid fa-user-shield text-pink-400"></i> ADMIN CONTROL PANEL
+            </h2>
+
+            <!-- Password Login Form -->
+            <div id="adminLoginForm" class="space-y-3">
+                <p class="text-xs text-gray-300">Enter Admin Password to manage tournament settings, QR code, and players:</p>
+                <input type="password" id="adminPassInput" placeholder="Enter Admin Password" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2.5 text-sm text-white">
+                <button onclick="verifyAdminPassword()" class="w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 font-orbitron font-bold text-xs text-white">
+                    LOGIN TO ADMIN PANEL
+                </button>
+            </div>
+
+            <!-- Admin Panel Controls -->
+            <div id="adminControls" class="hidden space-y-4 text-xs">
+                
+                <!-- Admin Tabs Header -->
+                <div class="flex gap-2 border-b border-purple-800 pb-2">
+                    <button onclick="switchAdminTab('players')" id="adminTabBtn-players" class="flex-1 py-2 rounded-lg bg-purple-600 text-white font-bold text-center">
+                        <i class="fa-solid fa-users"></i> Players Details
+                    </button>
+                    <button onclick="switchAdminTab('settings')" id="adminTabBtn-settings" class="flex-1 py-2 rounded-lg bg-purple-950 text-purple-300 font-bold text-center">
+                        <i class="fa-solid fa-gears"></i> QR & Links
+                    </button>
+                </div>
+
+                <!-- ADMIN TAB 1: Complete Players List & Details -->
+                <div id="adminTab-players" class="space-y-3">
+                    
+                    <!-- Player Filter Options -->
+                    <div class="flex items-center justify-between gap-1 bg-purple-950 p-1 rounded-xl border border-purple-500/30">
+                        <button onclick="filterAdminPlayers('All')" id="filterBtn-All" class="flex-1 py-1 rounded-lg text-[10px] font-bold bg-purple-600 text-white">
+                            All (<span id="cntAll">0</span>)
+                        </button>
+                        <button onclick="filterAdminPlayers('Pending')" id="filterBtn-Pending" class="flex-1 py-1 rounded-lg text-[10px] font-bold text-yellow-300 hover:bg-purple-900">
+                            Pending (<span id="cntPending">0</span>)
+                        </button>
+                        <button onclick="filterAdminPlayers('Approved')" id="filterBtn-Approved" class="flex-1 py-1 rounded-lg text-[10px] font-bold text-green-300 hover:bg-purple-900">
+                            Approved (<span id="cntApproved">0</span>)
+                        </button>
+                        <button onclick="filterAdminPlayers('Rejected')" id="filterBtn-Rejected" class="flex-1 py-1 rounded-lg text-[10px] font-bold text-red-300 hover:bg-purple-900">
+                            Rejected (<span id="cntRejected">0</span>)
+                        </button>
+                    </div>
+
+                    <div class="flex justify-between items-center px-1">
+                        <span class="font-bold text-purple-200">Registered Players Data</span>
+                        <button onclick="clearAllData()" class="text-red-400 hover:underline text-[10px] font-bold">Clear All Data</button>
+                    </div>
+
+                    <div id="adminPlayersList" class="space-y-3 max-h-80 overflow-y-auto pr-1">
+                        <!-- JS renders player cards -->
+                    </div>
+                </div>
+
+                <!-- ADMIN TAB 2: Custom QR Upload, UPI ID & YouTube Links -->
+                <div id="adminTab-settings" class="hidden space-y-3.5">
+                    
+                    <!-- Custom QR File Upload -->
+                    <div class="bg-purple-950/60 p-3 rounded-xl border border-purple-500/40 space-y-2">
+                        <label class="block font-bold text-purple-300">1. Upload Custom QR Code Image</label>
+                        <input type="file" id="adminQrFileInput" accept="image/*" onchange="handleAdminQrUpload(event)" class="w-full bg-purple-900 border border-purple-500/40 rounded-xl p-2 text-xs text-gray-200 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:bg-purple-600 file:text-white file:font-bold">
+                        <p class="text-[10px] text-gray-400">Or paste direct QR Image URL below:</p>
+                        <div class="flex gap-2">
+                            <input type="text" id="adminQrUrlInput" placeholder="https://..." class="flex-1 bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2 text-white">
+                            <button onclick="updateQrUrl()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-3 py-2 rounded-xl text-xs">
+                                Set URL
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- UPI ID Input -->
+                    <div class="bg-purple-950/60 p-3 rounded-xl border border-purple-500/40 space-y-2">
+                        <label class="block font-bold text-purple-300">2. Official UPI ID</label>
+                        <input type="text" id="adminUpiInput" placeholder="e.g. ttxgame@upi" class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2 text-white">
+                    </div>
+
+                    <!-- YouTube Links -->
+                    <div class="bg-purple-950/60 p-3 rounded-xl border border-purple-500/40 space-y-2">
+                        <label class="block font-bold text-purple-300">3. YouTube Channel Link</label>
+                        <input type="text" id="adminChannelLinkInput" placeholder="https://youtube.com/..." class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2 text-white">
+
+                        <label class="block font-bold text-purple-300 pt-1">4. Form Joining Watch Video Link</label>
+                        <input type="text" id="adminVideoLinkInput" placeholder="https://youtube.com/watch?v=..." class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2 text-white">
+                    </div>
+
+                    <!-- WhatsApp Group Links -->
+                    <div class="bg-purple-950/60 p-3 rounded-xl border border-purple-500/40 space-y-2">
+                        <label class="block font-bold text-purple-300">5. Section A WhatsApp Group Link</label>
+                        <input type="text" id="adminSecALink" placeholder="https://chat.whatsapp.com/..." class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2 text-white">
+
+                        <label class="block font-bold text-purple-300 pt-1">6. Section B WhatsApp Group Link</label>
+                        <input type="text" id="adminSecBLink" placeholder="https://chat.whatsapp.com/..." class="w-full bg-purple-950 border border-purple-500/40 rounded-xl px-3 py-2 text-white">
+                    </div>
+
+                    <button onclick="saveAdminSettings()" class="w-full py-3 bg-pink-600 hover:bg-pink-700 text-white font-orbitron font-bold rounded-xl shadow-lg transition">
+                        SAVE ALL SETTINGS
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-purple-900 border border-purple-400 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-2xl hidden transition-all">
+        Message
+    </div>
+
+    <script>
+        // STRICT ADMIN PASSWORD
+        const ADMIN_PASSWORD = "TTX10032007";
+
+        // Application State
+        let registrations = JSON.parse(localStorage.getItem('ttx_registrations') || '[]');
+        let settings = JSON.parse(localStorage.getItem('ttx_settings') || JSON.stringify({
+            qrUrl: 'https://placehold.co/300x300/101010/a855f7?text=Scan+QR+%E2%82%B920',
+            upiId: 'ttxgame@upi',
+            channelLink: 'https://youtube.com/@ttx_ytt?si=lco0vZcVFwyYX0la',
+            videoLink: 'https://youtube.com/@ttx_ytt?si=lco0vZcVFwyYX0la',
+            secALink: '',
+            secBLink: ''
+        }));
+
+        let selectedSection = 'A';
+        let selectedSeatNumber = null;
+        let isAdminLoggedIn = false;
+        let adminFilter = 'All';
+        let helpLanguage = 'en';
+        let currentUploadedAvatar = '';
+
+        window.onload = function() {
+            renderAllViews();
+            updateSettingsDisplay();
+        };
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Tab Switch Controller
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            const selectedTab = document.getElementById('tab-' + tabId);
+            if (selectedTab) selectedTab.classList.remove('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToHomeQr() {
+            switchTab('home');
+            setTimeout(() => {
+                const el = document.getElementById('homePaymentSection');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 200);
+        }
+
+        // Language Switcher for Help
+        function setHelpLanguage(lang) {
+            helpLanguage = lang;
+            const btnEn = document.getElementById('langBtnEn');
+            const btnHi = document.getElementById('langBtnHi');
+            const contentEn = document.getElementById('helpContentEn');
+            const contentHi = document.getElementById('helpContentHi');
+
+            if (lang === 'hi') {
+                btnHi.className = "px-2.5 py-1 rounded-lg text-xs font-bold transition bg-purple-600 text-white";
+                btnEn.className = "px-2.5 py-1 rounded-lg text-xs font-bold transition text-purple-300 hover:text-white";
+                contentHi.classList.remove('hidden');
+                contentEn.classList.add('hidden');
+            } else {
+                btnEn.className = "px-2.5 py-1 rounded-lg text-xs font-bold transition bg-purple-600 text-white";
+                btnHi.className = "px-2.5 py-1 rounded-lg text-xs font-bold transition text-purple-300 hover:text-white";
+                contentEn.classList.remove('hidden');
+                contentHi.classList.add('hidden');
+            }
+        }
+
+        // Image Upload Handler
+        function handlePlayerImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentUploadedAvatar = e.target.result;
+                    const img = document.getElementById('avatarPreviewImg');
+                    const fallback = document.getElementById('avatarPreviewFallback');
+                    img.src = currentUploadedAvatar;
+                    img.classList.remove('hidden');
+                    fallback.classList.add('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function openRegistrationModal() {
+            document.getElementById('registrationModal').classList.remove('hidden');
+            currentUploadedAvatar = '';
+            document.getElementById('avatarPreviewImg').src = '';
+            document.getElementById('avatarPreviewImg').classList.add('hidden');
+            document.getElementById('avatarPreviewFallback').classList.remove('hidden');
+            selectSection('A');
+            renderSeatGridSelection();
+            validateForm();
+        }
+
+        function closeRegistrationModal() {
+            document.getElementById('registrationModal').classList.add('hidden');
+        }
+
+        function toggleSameAsMobile() {
+            const isChecked = document.getElementById('sameAsMobile').checked;
+            const mobile = document.getElementById('regMobile').value;
+            const waInput = document.getElementById('regWhatsApp');
+
+            if (isChecked) {
+                waInput.value = mobile;
+                waInput.readOnly = true;
+            } else {
+                waInput.readOnly = false;
+            }
+            validateForm();
+        }
+
+        function syncWhatsAppNumber() {
+            if (document.getElementById('sameAsMobile').checked) {
+                document.getElementById('regWhatsApp').value = document.getElementById('regMobile').value;
+            }
+        }
+
+        function selectSection(sec) {
+            selectedSection = sec;
+            const btnA = document.getElementById('btnSecA');
+            const btnB = document.getElementById('btnSecB');
+
+            if (sec === 'A') {
+                btnA.className = "py-2.5 rounded-xl border border-purple-500 font-orbitron font-bold text-sm bg-purple-600 text-white";
+                btnB.className = "py-2.5 rounded-xl border border-purple-500/40 font-orbitron font-bold text-sm bg-purple-950 text-purple-300";
+            } else {
+                btnB.className = "py-2.5 rounded-xl border border-purple-500 font-orbitron font-bold text-sm bg-purple-600 text-white";
+                btnA.className = "py-2.5 rounded-xl border border-purple-500/40 font-orbitron font-bold text-sm bg-purple-950 text-purple-300";
+            }
+            selectedSeatNumber = null;
+            renderSeatGridSelection();
+            validateForm();
+        }
+
+        function renderSeatGridSelection() {
+            const grid = document.getElementById('modalSeatGrid');
+            grid.innerHTML = '';
+
+            const day = document.getElementById('regDay').value;
+            const time = document.getElementById('regTime').value;
+
+            for (let i = 1; i <= 30; i++) {
+                const isTaken = registrations.some(r => r.section === selectedSection && r.seatNumber == i && r.day === day && r.time === time && r.status !== 'Rejected');
+                
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                
+                if (isTaken) {
+                    btn.disabled = true;
+                    btn.className = "py-1.5 rounded-lg bg-green-950 border border-green-500 text-green-400 font-bold text-xs opacity-60 cursor-not-allowed";
+                    btn.innerText = i + " ✖";
+                } else {
+                    btn.onclick = () => chooseSeat(i);
+                    if (selectedSeatNumber === i) {
+                        btn.className = "py-1.5 rounded-lg bg-pink-600 text-white font-black text-xs border border-white";
+                    } else {
+                        btn.className = "py-1.5 rounded-lg bg-purple-900 hover:bg-purple-800 text-white font-bold text-xs border border-purple-500/40";
+                    }
+                    btn.innerText = i;
+                }
+                grid.appendChild(btn);
+            }
+        }
+
+        function chooseSeat(num) {
+            selectedSeatNumber = num;
+            document.getElementById('selectedSeatNotice').innerText = `Selected Seat: ${selectedSeatNumber} in Section ${selectedSection}`;
+            renderSeatGridSelection();
+            validateForm();
+        }
+
+        function toggleSkipPayment() {
+            const isSkipped = document.getElementById('skipPayment').checked;
+            const paymentBox = document.getElementById('paymentBox');
+            if (isSkipped) {
+                paymentBox.classList.add('opacity-40');
+            } else {
+                paymentBox.classList.remove('opacity-40');
+            }
+            validateForm();
+        }
+
+        function validateForm() {
+            const realName = document.getElementById('regRealName').value.trim();
+            const mobile = document.getElementById('regMobile').value.trim();
+            const wa = document.getElementById('regWhatsApp').value.trim();
+            const gameName = document.getElementById('regGameName').value.trim();
+            const gameUid = document.getElementById('regGameUid').value.trim();
+            const submitBtn = document.getElementById('regSubmitBtn');
+
+            const isValid = realName && mobile && wa && gameName && gameUid && selectedSeatNumber;
+
+            if (isValid) {
+                submitBtn.disabled = false;
+                submitBtn.className = "w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-orbitron font-black text-sm shadow-xl cursor-pointer transition";
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.className = "w-full py-3.5 rounded-xl bg-gray-700 text-gray-400 font-orbitron font-bold text-sm cursor-not-allowed transition";
+            }
+        }
+
+        function handleRegistrationSubmit(e) {
+            e.preventDefault();
+            const realName = document.getElementById('regRealName').value.trim();
+            const mobile = document.getElementById('regMobile').value.trim();
+            const wa = document.getElementById('regWhatsApp').value.trim();
+            const gameName = document.getElementById('regGameName').value.trim();
+            const gameUid = document.getElementById('regGameUid').value.trim();
+            const day = document.getElementById('regDay').value;
+            const time = document.getElementById('regTime').value;
+            const isSkipped = document.getElementById('skipPayment').checked;
+            const txnId = document.getElementById('regTxnId').value.trim();
+            const message = document.getElementById('regMessage').value.trim();
+
+            const avatarDisplay = currentUploadedAvatar || '🎮';
+
+            const newReg = {
+                id: 'TTX' + Date.now().toString().slice(-6),
+                avatar: avatarDisplay,
+                realName: realName,
+                mobile: mobile,
+                whatsApp: wa,
+                gameName: gameName,
+                gameUid: gameUid,
+                day: day,
+                time: time,
+                section: selectedSection,
+                seatNumber: selectedSeatNumber,
+                status: isSkipped ? 'Pending Payment' : 'Pending Verification',
+                txnId: txnId || 'N/A',
+                message: message || 'None',
+                timestamp: new Date().toLocaleString()
+            };
+
+            registrations.push(newReg);
+            localStorage.setItem('ttx_registrations', JSON.stringify(registrations));
+
+            closeRegistrationModal();
+            showToast('Registration Submitted Successfully!');
+            renderAllViews();
+
+            document.getElementById('regForm').reset();
+            selectedSeatNumber = null;
+            currentUploadedAvatar = '';
+        }
+
+        function renderAvatarHtml(avatar) {
+            if (avatar && avatar.startsWith('data:image')) {
+                return `<img src="${avatar}" class="w-6 h-6 rounded-full object-cover inline-block border border-purple-400">`;
+            }
+            return avatar || '🎮';
+        }
+
+        function searchRegistrationStatus(inputId) {
+            const query = document.getElementById(inputId).value.trim().toLowerCase();
+            const targetResult = inputId === 'homeSearchInput' ? 'homeSearchResult' : 'statusSearchResult';
+            const container = document.getElementById(targetResult);
+
+            if (!query) {
+                container.innerHTML = `<p class="text-xs text-red-400">Please enter a search Game Name or Mobile Number.</p>`;
+                container.classList.remove('hidden');
+                return;
+            }
+
+            const results = registrations.filter(r => 
+                r.gameName.toLowerCase().includes(query) || 
+                r.realName.toLowerCase().includes(query) || 
+                r.mobile.includes(query)
+            );
+
+            if (results.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-400 bg-purple-950/40 p-3 rounded-xl border border-purple-800/40">No registration found for "${query}".</p>`;
+            } else {
+                container.innerHTML = results.map(r => {
+                    const groupLink = r.section === 'A' ? settings.secALink : settings.secBLink;
+                    const isApproved = r.status === 'Approved';
+                    return `
+                        <div class="bg-purple-950/80 border border-purple-500/50 p-3.5 rounded-xl space-y-2 text-xs">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-white text-sm flex items-center gap-1.5">${renderAvatarHtml(r.avatar)} ${r.gameName}</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${isApproved ? 'bg-green-500/20 text-green-400 border border-green-500/40' : r.status === 'Rejected' ? 'bg-red-500/20 text-red-400 border border-red-500/40' : 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/40'}">
+                                    ${r.status}
+                                </span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-1 text-[11px] text-gray-300">
+                                <p><strong>Section:</strong> ${r.section}</p>
+                                <p><strong>Seat No:</strong> #${r.seatNumber}</p>
+                                <p><strong>Time:</strong> ${r.time}</p>
+                                <p><strong>Reg ID:</strong> ${r.id}</p>
+                                <p class="col-span-2"><strong>Payment UTR:</strong> ${r.txnId}</p>
+                            </div>
+                            ${isApproved && groupLink ? `
+                                <a href="${groupLink}" target="_blank" class="block w-full py-2 bg-green-600 hover:bg-green-700 text-white font-bold text-center rounded-lg mt-2 transition">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i> Join Section ${r.section} WhatsApp Group
+                                </a>
+                            ` : ''}
+                        </div>
+                    `;
+                }).join('');
+            }
+            container.classList.remove('hidden');
+        }
+
+        function openAdminModal() {
+            document.getElementById('adminModal').classList.remove('hidden');
+            if (isAdminLoggedIn) {
+                document.getElementById('adminLoginForm').classList.add('hidden');
+                document.getElementById('adminControls').classList.remove('hidden');
+                renderAdminPlayersList();
+            }
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
+
+        function verifyAdminPassword() {
+            const pass = document.getElementById('adminPassInput').value.trim();
+            if (pass === ADMIN_PASSWORD) {
+                isAdminLoggedIn = true;
+                document.getElementById('adminLoginForm').classList.add('hidden');
+                document.getElementById('adminControls').classList.remove('hidden');
+                renderAdminPlayersList();
+                showToast('Admin Logged In Successfully');
+            } else {
+                showToast('Incorrect Admin Password!');
+            }
+        }
+
+        function switchAdminTab(tab) {
+            if (tab === 'players') {
+                document.getElementById('adminTab-players').classList.remove('hidden');
+                document.getElementById('adminTab-settings').classList.add('hidden');
+                document.getElementById('adminTabBtn-players').className = "flex-1 py-2 rounded-lg bg-purple-600 text-white font-bold text-center";
+                document.getElementById('adminTabBtn-settings').className = "flex-1 py-2 rounded-lg bg-purple-950 text-purple-300 font-bold text-center";
+                renderAdminPlayersList();
+            } else {
+                document.getElementById('adminTab-settings').classList.remove('hidden');
+                document.getElementById('adminTab-players').classList.add('hidden');
+                document.getElementById('adminTabBtn-settings').className = "flex-1 py-2 rounded-lg bg-purple-600 text-white font-bold text-center";
+                document.getElementById('adminTabBtn-players').className = "flex-1 py-2 rounded-lg bg-purple-950 text-purple-300 font-bold text-center";
+                
+                document.getElementById('adminQrUrlInput').value = settings.qrUrl;
+                document.getElementById('adminUpiInput').value = settings.upiId || 'ttxgame@upi';
+                document.getElementById('adminChannelLinkInput').value = settings.channelLink || 'https://youtube.com/@ttx_ytt?si=lco0vZcVFwyYX0la';
+                document.getElementById('adminVideoLinkInput').value = settings.videoLink || 'https://youtube.com/@ttx_ytt?si=lco0vZcVFwyYX0la';
+                document.getElementById('adminSecALink').value = settings.secALink || '';
+                document.getElementById('adminSecBLink').value = settings.secBLink || '';
+            }
+        }
+
+        function filterAdminPlayers(status) {
+            adminFilter = status;
+            ['All', 'Pending', 'Approved', 'Rejected'].forEach(s => {
+                const btn = document.getElementById('filterBtn-' + s);
+                if (s === status) {
+                    btn.className = "flex-1 py-1 rounded-lg text-[10px] font-bold bg-purple-600 text-white shadow";
+                } else {
+                    btn.className = "flex-1 py-1 rounded-lg text-[10px] font-bold text-purple-300 hover:bg-purple-900";
+                }
+            });
+            renderAdminPlayersList();
+        }
+
+        function renderAdminPlayersList() {
+            const container = document.getElementById('adminPlayersList');
+            
+            // Calculate counts
+            const cntAll = registrations.length;
+            const cntPending = registrations.filter(r => r.status.includes('Pending')).length;
+            const cntApproved = registrations.filter(r => r.status === 'Approved').length;
+            const cntRejected = registrations.filter(r => r.status === 'Rejected').length;
+
+            document.getElementById('cntAll').innerText = cntAll;
+            document.getElementById('cntPending').innerText = cntPending;
+            document.getElementById('cntApproved').innerText = cntApproved;
+            document.getElementById('cntRejected').innerText = cntRejected;
+
+            let filtered = registrations;
+            if (adminFilter === 'Pending') filtered = registrations.filter(r => r.status.includes('Pending'));
+            else if (adminFilter === 'Approved') filtered = registrations.filter(r => r.status === 'Approved');
+            else if (adminFilter === 'Rejected') filtered = registrations.filter(r => r.status === 'Rejected');
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-400 text-center py-6">No players found under "${adminFilter}".</p>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map((r) => {
+                const originalIndex = registrations.indexOf(r);
+                return `
+                    <div class="bg-purple-950/80 border border-purple-500/40 p-3 rounded-xl space-y-2.5 shadow-md">
+                        <div class="flex items-center justify-between border-b border-purple-800/40 pb-1.5">
+                            <span class="font-bold text-white text-xs flex items-center gap-1.5">${renderAvatarHtml(r.avatar)} ${r.gameName} <span class="text-purple-300">(Sec ${r.section} - Seat #${r.seatNumber})</span></span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded ${r.status === 'Approved' ? 'bg-green-600 text-white' : r.status === 'Rejected' ? 'bg-red-600 text-white' : 'bg-yellow-600 text-white'}">${r.status}</span>
+                        </div>
+
+                        <!-- Full Details View -->
+                        <div class="grid grid-cols-2 gap-1 text-[10px] text-gray-300">
+                            <p><strong>Real Name:</strong> ${r.realName}</p>
+                            <p><strong>Game UID:</strong> ${r.gameUid}</p>
+                            <p><strong>Mobile:</strong> ${r.mobile}</p>
+                            <p><strong>WhatsApp:</strong> ${r.whatsApp}</p>
+                            <p><strong>Match Time:</strong> ${r.day} (${r.time})</p>
+                            <p><strong>Reg ID:</strong> ${r.id}</p>
+                            <p class="col-span-2"><strong>UTR / Txn ID:</strong> <span class="text-yellow-300 font-mono">${r.txnId}</span></p>
+                            ${r.message && r.message !== 'None' ? `<p class="col-span-2 text-pink-300"><strong>Note:</strong> "${r.message}"</p>` : ''}
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <button onclick="updatePlayerStatus(${originalIndex}, 'Approved')" class="px-2.5 py-1 bg-green-600 hover:bg-green-700 text-white rounded text-[10px] font-bold">
+                                Approve
+                            </button>
+                            <button onclick="updatePlayerStatus(${originalIndex}, 'Rejected')" class="px-2.5 py-1 bg-red-600 hover:bg-red-700 text-white rounded text-[10px] font-bold">
+                                Reject
+                            </button>
+                            <a href="https://wa.me/91${r.whatsApp}?text=Hello%20${encodeURIComponent(r.gameName)},%20Your%20TTX%20Tournament%20Registration%20is%20${encodeURIComponent(r.status)}!" target="_blank" class="px-2.5 py-1 bg-green-700 hover:bg-green-800 text-white rounded text-[10px] font-bold flex items-center gap-1">
+                                <i class="fa-brands fa-whatsapp"></i> Chat
+                            </a>
+                            <button onclick="copyToClipboard('${r.mobile}')" class="px-2 py-1 bg-purple-800 hover:bg-purple-700 text-white rounded text-[10px] font-bold">
+                                Copy Phone
+                            </button>
+                            <button onclick="deletePlayer(${originalIndex})" class="px-2 py-1 bg-gray-700 hover:bg-red-800 text-white rounded text-[10px] font-bold ml-auto">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updatePlayerStatus(index, newStatus) {
+            registrations[index].status = newStatus;
+            localStorage.setItem('ttx_registrations', JSON.stringify(registrations));
+            renderAdminPlayersList();
+            renderAllViews();
+            showToast(`Player status marked as ${newStatus}!`);
+        }
+
+        function deletePlayer(index) {
+            if (confirm('Delete this player registration permanently?')) {
+                registrations.splice(index, 1);
+                localStorage.setItem('ttx_registrations', JSON.stringify(registrations));
+                renderAdminPlayersList();
+                renderAllViews();
+                showToast('Registration deleted!');
+            }
+        }
+
+        function handleAdminQrUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    settings.qrUrl = e.target.result;
+                    localStorage.setItem('ttx_settings', JSON.stringify(settings));
+                    updateSettingsDisplay();
+                    showToast('Custom QR Code Uploaded Successfully!');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function updateQrUrl() {
+            const url = document.getElementById('adminQrUrlInput').value.trim();
+            if (url) {
+                settings.qrUrl = url;
+                localStorage.setItem('ttx_settings', JSON.stringify(settings));
+                updateSettingsDisplay();
+                showToast('Payment QR Code URL updated!');
+            }
+        }
+
+        function saveAdminSettings() {
+            settings.upiId = document.getElementById('adminUpiInput').value.trim() || 'ttxgame@upi';
+            settings.channelLink = document.getElementById('adminChannelLinkInput').value.trim() || 'https://youtube.com/@ttx_ytt?si=lco0vZcVFwyYX0la';
+            settings.videoLink = document.getElementById('adminVideoLinkInput').value.trim() || 'https://youtube.com/@ttx_ytt?si=lco0vZcVFwyYX0la';
+            settings.secALink = document.getElementById('adminSecALink').value.trim();
+            settings.secBLink = document.getElementById('adminSecBLink').value.trim();
+
+            localStorage.setItem('ttx_settings', JSON.stringify(settings));
+            updateSettingsDisplay();
+            showToast('All Admin Settings Saved Successfully!');
+        }
+
+        function updateSettingsDisplay() {
+            document.getElementById('homeQrImage').src = settings.qrUrl;
+            document.getElementById('homeUpiDisplay').innerText = settings.upiId || 'ttxgame@upi';
+            document.getElementById('ytChannelBtn').href = settings.channelLink || 'https://youtube.com/@ttx_ytt?si=lco0vZcVFwyYX0la';
+            document.getElementById('ytVideoBtn').href = settings.videoLink || 'https://youtube.com/@ttx_ytt?si=lco0vZcVFwyYX0la';
+        }
+
+        function copyUpiId() {
+            copyToClipboard(settings.upiId || 'ttxgame@upi');
+        }
+
+        function copyToClipboard(text) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(`Copied: ${text}`);
+        }
+
+        function clearAllData() {
+            if (confirm('Are you sure you want to clear ALL player registrations?')) {
+                registrations = [];
+                localStorage.setItem('ttx_registrations', JSON.stringify(registrations));
+                renderAdminPlayersList();
+                renderAllViews();
+                showToast('All registration data cleared.');
+            }
+        }
+
+        function renderAllViews() {
+            renderSeatGrids();
+        }
+
+        function renderSeatGrids() {
+            const secAContainer = document.getElementById('gridSectionA');
+            const secBContainer = document.getElementById('gridSectionB');
+
+            let secAOccupied = 0;
+            let secBOccupied = 0;
+
+            if (secAContainer) secAContainer.innerHTML = '';
+            if (secBContainer) secBContainer.innerHTML = '';
+
+            for (let i = 1; i <= 30; i++) {
+                // Section A
+                const playerA = registrations.find(r => r.section === 'A' && r.seatNumber == i && r.status !== 'Rejected');
+                if (playerA) secAOccupied++;
+
+                if (secAContainer) {
+                    const cardA = document.createElement('div');
+                    cardA.className = playerA ? "bg-green-950 border border-green-500 rounded-xl p-2 text-center shadow-md flex flex-col items-center justify-center min-h-[60px]" : "bg-purple-950/40 border border-purple-500/30 rounded-xl p-2 text-center flex flex-col items-center justify-center min-h-[60px]";
+                    cardA.innerHTML = playerA ? `
+                        <span class="text-[10px] font-bold text-green-400">#${i}</span>
+                        <div class="my-0.5">${renderAvatarHtml(playerA.avatar)}</div>
+                        <span class="text-[10px] font-bold text-white truncate w-full">${playerA.gameName}</span>
+                    ` : `
+                        <span class="text-xs font-bold text-purple-300">#${i}</span>
+                        <span class="text-[9px] text-gray-500">Available</span>
+                    `;
+                    secAContainer.appendChild(cardA);
+                }
+
+                // Section B
+                const playerB = registrations.find(r => r.section === 'B' && r.seatNumber == i && r.status !== 'Rejected');
+                if (playerB) secBOccupied++;
+
+                if (secBContainer) {
+                    const cardB = document.createElement('div');
+                    cardB.className = playerB ? "bg-green-950 border border-green-500 rounded-xl p-2 text-center shadow-md flex flex-col items-center justify-center min-h-[60px]" : "bg-purple-950/40 border border-purple-500/30 rounded-xl p-2 text-center flex flex-col items-center justify-center min-h-[60px]";
+                    cardB.innerHTML = playerB ? `
+                        <span class="text-[10px] font-bold text-green-400">#${i}</span>
+                        <div class="my-0.5">${renderAvatarHtml(playerB.avatar)}</div>
+                        <span class="text-[10px] font-bold text-white truncate w-full">${playerB.gameName}</span>
+                    ` : `
+                        <span class="text-xs font-bold text-purple-300">#${i}</span>
+                        <span class="text-[9px] text-gray-500">Available</span>
+                    `;
+                    secBContainer.appendChild(cardB);
+                }
+            }
+
+            document.getElementById('secACount').innerText = `${secAOccupied} / 30`;
+            document.getElementById('secBCount').innerText = `${secBOccupied} / 30`;
+            document.getElementById('totalSeatsCount').innerText = `${secAOccupied + secBOccupied} / 60 Filled`;
+            document.getElementById('secABadge').innerText = `${secAOccupied} / 30 Booked`;
+            document.getElementById('secBBadge').innerText = `${secBOccupied} / 30 Booked`;
+        }
+    </script>
+</body>
+</html>
